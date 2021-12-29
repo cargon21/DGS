@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dgsStyles.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}"/>
+</head>
+<body class = "text-xl text-center bg-gradient-to-r from-off-white-color to-dark-blue-color">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class = "text-xl">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    <form method = "POST" action "" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <legend class = "text-center text-5xl p-5 font-extrabold">Admin Login</legend>
+        <div class = "p-5 ">
+            {{ form.username.label }}
+            {{ form.username(autocomplete="off") }}
+            
+        </div>
+        <div type="password" class = "p-5 ">
+            {{ form.password.label }}
+            {{ form.password(autocomplete="off") }}
+        </div>
+        <div class = "p-5">
+            {{ form.submit() }}
+        </div>
+    </form>
+</body>
+</html>

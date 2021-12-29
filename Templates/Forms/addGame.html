@@ -1,0 +1,73 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dgsStyles.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}"/>
+</head>
+
+<body class = " text-xl text-center bg-gradient-to-r from-off-white-color to-red-color">
+    <form method = "POST" action "" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <legend class = "text-center text-5xl p-5 font-extrabold">Add a New Game to DGS</legend>
+        <div class = "p-5 ">
+            {{ form.title.label }}
+            {{ form.title(autocomplete="off") }}
+            
+        </div>
+        <div class = "p-5">
+            {{ form.developer.label }}
+            {{ form.developer(autocomplete="off") }}
+        
+            {{ form.publisher.label }}
+            {{ form.publisher(autocomplete="off") }}
+        </div>
+        <div class = "p-5">
+            {{ form.genre.label }}
+            {{ form.genre(autocomplete="off") }}
+
+            {{ form.releaseDate.label }}
+            {{ form.releaseDate(autocomplete="off") }}
+
+        </div>
+        
+        <div class = "p-5">
+            {{ form.rating.label }}
+            {{ form.rating(autocomplete="off")}}
+
+            {{ form.price.label }}
+            {{ form.price(autocomplete="off") }}
+
+        </div>
+        <div class = "p-5">
+            {{ form.siteName.label }}
+            {{ form.siteName(autocomplete="off") }}
+
+            {{ form.siteURL.label }}
+            {{ form.siteURL(autocomplete="off") }}
+
+        </div>
+        <div class = "p-5">
+            {{ form.imageURL.label}}
+            {{ form.imageURL }}
+            {% if form.imageURL.errors%}
+                {% for error in form.imageURL.errors %}
+                    <span>{{ error }}</span><br>
+                {% endfor %}
+            {% endif %}
+
+        </div>
+        <div class = "p-5">
+            {{ form.description.label }}
+            {{ form.description (rows='4',cols='40') }}
+        </div>
+        <div class = "p-5">
+            {{ form.submit() }}
+        </div>
+    </form>
+</body>
+</html>
+{% endblock content %}

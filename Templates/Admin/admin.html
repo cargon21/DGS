@@ -1,0 +1,53 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dgsStyles.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}"/>
+</head>
+
+<body class = 'bg-off-white-color'>      
+    <div class = "text-3xl text-black-color h-screen bg-no-repeat bg-auto float-left w-2/3 pt-5 text-center"> 
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class = "text-xl">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <h1 class = "text-9xl">Admin Home</h1>
+        <h2 class = "text-5xl pb-10"> Welcome</h2>
+
+        <div class = "p-3 hover:text-red-color">
+            <a href="{{ url_for('addGame') }}">Add a Game</a>
+        </div>
+        <div class = "p-3 hover:text-faded-pink-color">            
+            <a href="{{ url_for('deleteGame') }}">Delete a Game</a>
+        </div>
+        <div class = "p-3 hover:text-pink-color">            
+            <a href="{{ url_for('addPrice') }}">Add/Update Price</a>
+        </div>
+        <div class = "p-3 hover:text-light-blue-color">            
+            <a href="{{ url_for('deletePrice') }}">Delete Game Price</a>
+        </div>
+        <div class = "p-3 hover:text-blue-color">            
+            <a href="{{ url_for('displayGames') }}">Display Game Library</a>
+        </div>
+        <div class = "p-3 hover:text-purple-color">            
+            <a href="{{ url_for('home') }}">Return to the Home Page</a>
+        </div>
+    </div>
+    
+    <div class = "h-screen float-right w-1/3" style = "background-image: url(../static/siteImages/background2.jpg); 
+                    background-size: 115%;">
+    </div>
+
+</body>
+</html>
+{% endblock content %}

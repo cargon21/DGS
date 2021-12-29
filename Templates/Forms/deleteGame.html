@@ -1,0 +1,28 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Delete a Game</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dgsStyles.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}"/>
+
+    </head>
+
+    <body class = "font-body-Hanson-Bold font-bold text-xl text-center
+                    bg-gradient-to-r from-off-white-color to-faded-pink-color">
+        <form method = "POST" action "" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <legend class = "text-center text-5xl p-5 font-extrabold">Delete a Game</legend>
+            <div class = "p-5">
+                {{ form.title.label }}
+                {{ form.title(autocomplete="off")}}
+            </div>
+            <div class = "p-5">
+                {{ form.submit() }}
+            </div>
+        </form>
+    </body>
+</html>
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{gameData[1]}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dgsStyles.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}"/>
+</head>
+
+<body class = "bg-dark-blue-color text-off-white-color h-screen align-top pt-32 px-14 font-body-Hanson-Bold font-extrabold">
+    <div class = "flex flex-row">
+        <div class = "inline-block"> 
+            {% set imageURL = url_for('static', filename = 'Images/') + gameData[0]  %}
+            <img src= {{imageURL}} alt="Game Image" class = "w-96 mr-12 border-2"></img>
+        </div>
+
+        <div class = "inline-block align-top w-1/2 mx-auto my-auto  "> 
+            <h1 class = "text-4xl " > {{ gameData[1] }}</h1>
+            <p class = "">
+                {{ gameData[3] }}
+            </p>
+        </div>
+        
+        <div class = "inline-block align-top w-60 ml-12 text-center mx-auto my-auto">
+            {% for i in range(gamePrices|length) %}
+                {% if i == 0 %}
+                    <h2>
+                        <a href= {{gamePrices[i][1]}} class = "text-faded-pink-color"> {{ gamePrices[i][0] }} Price: ${{ gamePrices[i][2] }} </a>
+                    </h2>
+                {% else %}
+                    <h2>
+                        <a href= {{gamePrices[i][1]}}> {{ gamePrices[i][0] }} Price: ${{ gamePrices[i][2] }} </a>
+                    </h2>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class = "pt-4">
+        <h2>Release Date: {{gameData[2]}}</h2>
+        <h2>Developer: {{gameData[4]}}</h2>
+        <h2>Publisher: {{gameData[5]}}</h2>
+        <h2>Genre: {{gameData[6]}}</h2>
+        <h2>Rating: {{gameData[7]}}% </h2>
+    </div>
+</body>
+</html>
+{% endblock content %}

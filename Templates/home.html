@@ -1,0 +1,66 @@
+{% block content %}
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DGS Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dgsStyles.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}"/>
+</head>
+
+<body class = "bg-dark-blue-color text-off-white-color">
+    <div> 
+        <div class = "text-off-white-color h-screen bg-no-repeat bg-auto float-left w-2/3 pt-5 text-center" 
+        style = "background-image: url(../static/siteImages/background1.jpg); background-size: cover; background-size: 115%;"> 
+            <h1 class = "text-9xl">DGS</h1>
+            <h2 class = "text-5xl"> Game Hunting Made Easy</h2>
+            <a href="#categories_" class = "text-5xl absolute bottom-3 right-1/3 pr-1">Browse Game</a>
+        </div>
+        
+        <div class = "h-screen bg-off-white-color float-right w-1/3 pt-5 text-center text-black-color">
+            <p class = "text-3xl text-first pl-3"> Eliminate the Hassle of Searching Online For Discounted Games. <br><br>
+                Find the Best Price and Buy from the Cheapest Source.<br><br>
+                Spend Less Time Srolling and More Time Gaming. 
+                </p>
+            <a href="#categories_" class = "text-5xl absolute bottom-3 left-2/3 pl-1">Categories</a>
+        </div>
+    
+    </div>
+    <div>&nbsp;</div>
+
+    <div id = "categories_">
+        <div class = "text-center text-3xl flex-col">  
+        
+            <a href="{{ url_for('exploreCategory', category = 'Action') }}" class = "m-auto">
+                <div class = "border-2 border-off-white-color px-20 py-20 mx-32 my-20 
+                hover:bg-off-white-color hover:text-black-color"> Action </div>
+            </a>
+        
+            <a href="{{ url_for('exploreCategory', category = 'FPS') }}" class = "border-black-color my-8">
+                <div class = "border-2 border-off-white-color px-20 py-20 mx-32 my-20 hover:bg-off-white-color hover:text-black-color">FPS</div>
+            </a>
+
+            <a href="{{ url_for('exploreCategory', category = 'Sports') }}" class = "border-black-color">
+                <div class = "border-2 border-off-white-color px-20 py-20 mx-32 my-20 hover:bg-off-white-color hover:text-black-color"> Sports </div>
+            </a>
+            
+            <a href="{{ url_for('exploreCategory', category = 'Strategy') }}" class = "border-black-color">
+                <div class = "border-2 border-off-white-color px-20 py-20 mx-32 my-20 hover:bg-off-white-color hover:text-black-color"> Strategy </div>
+            </a>
+            
+            <a href="{{ url_for('exploreCategory', category = 'Explore All') }}" class = "border-black-color">
+                <div class = "border-2 border-off-white-color px-20 py-20 mx-32 my-20 hover:bg-off-white-color hover:text-black-color"> Explore All </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+<footer class = "flex justify-evenly">
+    <a href="{{ url_for('adminLogin') }}" class = "text-left">Admin Login</a>
+    <div> Designed By Carson Sytner @ Suffolk University </div>
+</footer>
+</html>
+{% endblock content %}

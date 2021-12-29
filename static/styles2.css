@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'reg';
+    src: url(../static/ObjectSans-Regular.otf);
+}
+
+@font-face {
+    font-family: 'bol';
+    src: url(../static/ObjectSans-Heavy.otf);
+}
+
+body {
+    font-family: 'reg';
+}
+
+h1 {
+    font-family: 'bol';
+}
+
+h2 {
+    font-family: 'bol';
+}
+
+a {
+    font-family: 'bol';
+}
+
+legend {
+    font-family: 'bol';
+}

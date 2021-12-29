@@ -1,0 +1,17 @@
+{
+  "name": "dgs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss build Tailwind/src/styles.css -o static/dgsStyles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.1.0",
+    "postcss": "^8.2.0",
+    "tailwindcss": "^2.0.1"
+  }
+}

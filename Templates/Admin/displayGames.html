@@ -1,0 +1,47 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Game Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dgsStyles.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}"/>
+
+</head>
+<body>
+    <table class = "font-body-Hanson-Bold text-xs text-center">
+        <thead class = "bg-gradient-to-r from-off-white-color to-blue-color">
+            <tr class = "text-lg font-extrabold border-2 ">
+                <th class = "w-64  border-2">Game Title</th>
+                <th class = "w-40  border-2">Release Date</th>
+                <th class = "w-36  border-2">Image URL</th>
+                <th class = "w-96  border-2">Game Description</th>
+                <th class = "w-40  border-2">Developer</th>
+                <th class = "w-40 border-2">Publisher</th>
+                <th class = "w-20  border-2">Genre</th>
+                <th class = "w-20 border-2">Rating</th>
+                <th class = "w-28 border-2">Website ID</th>
+                <th class = "w-28 border-2">Website Name</th>
+                <th class = "w-20 border-2">Price</th>
+                <th class = "w-64 border-2">URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                {% for row in library %}
+                    <tr>
+                    {% for col in row %}
+                        <td class = "border-2">{{ col }}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+           
+        </tbody>
+    </table>
+
+
+</body>
+</html>
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{categoryName}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dgsStyles.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}"/>
+</head>
+
+<body class = "text-xl text-center bg-dark-blue-color text-off-white-color">
+    <h1 class = "text-7xl mb-20">
+        {{categoryName}} Games
+    </h1>
+
+    <div class = "mx-20">
+        {% for row in gameList %}
+            <div class = "flex flex-row my-20">
+                {% set imageURL = url_for('static', filename = 'Images/') + row[0]  %}
+                <img src= {{imageURL}} alt="Game Image" class = "w-72 mr-12 border-2"></img>
+                
+                <div class = "flex-none mt-4">
+                    {% for col in row %}
+                        <div> 
+                            {%if row.index(col) != 0 %}
+                                {%if row.index(col) == 1 %}
+                                    <div class = "text-left">
+                                        <a href="{{ url_for('gamePage', theTitle = col) }}" class = "text-4xl text-left">{{col}}</a>
+                                    </div>                                   
+                                {%elif row.index(col) == 2 %}
+                                    <div class ="text-base text-left">{{ col }}</div>
+                                {%elif row.index(col) == 3 %}
+                                    <div class ="text-base text-left">{{ col }}</div>
+                                {%elif row.index(col) == 4 %}
+                                    <div class ="text-base text-left">Lowest Price: ${{ col }}</div>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+{% endblock content %}
