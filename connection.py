@@ -8,7 +8,7 @@ try:
     mydb = mysql.connector.connect(
         host="localhost",
         user="root",
-        passwd="1053500Sy!",
+        passwd="SOMEPASSWORD!",
         database='gameschama'
     )
 except:
